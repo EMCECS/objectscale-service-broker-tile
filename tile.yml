@@ -1,0 +1,1763 @@
+---
+# The high-level description of your tile.
+# Replace these properties with real values.
+#
+name: objectscale-service-broker        # By convention lowercase with dashes
+icon_file: resources/DellTech_Logo_128px.png
+label: Objectscale Service Broker
+description: Dell Objectscale Service Broker for VMware Tanzu
+# metadata_version: 1.8                 # Optional, defaults to 1.8
+
+# Global defaults (all optional)
+#
+org: objectscale-service-broker-org     # Name of org to create for your apps
+space: objectscale-service-broker-space # Name of space to create for your apps
+# apply_open_security_group: true       # Apply open security group, default: false
+# standalone: false                     # Suppress default CF properties in property_blueprints metadata, default: false
+
+# Specify the packages to be included in your tile.
+# The format of the section to include depends on the type
+# of package you are describing. For fragments of each type
+# that you can copy & paste, see:
+#
+# http://docs.pivotal.io/tiledev/tile-generator.html
+#
+packages:
+  - name: service_broker
+    type: app-broker
+    label: Objectscale Service Broker application
+    enable_global_access_to_plans: (( .properties.enable_global_access_to_plans.value ))
+    manifest:
+      path: resources/objectscale-service-broker.jar
+      buildpack: java_buildpack_offline
+      memory: 1G
+      env:
+        JBP_CONFIG_OPEN_JDK_JRE: "{ jre: { version: '11.+' } }"
+
+        catalog.services[0].id: (( .properties.catalog_services_0_guid.value ))
+        catalog.services[0].active: (( .properties.catalog_services_0_active.value ))
+        catalog.services[0].name: (( .properties.catalog_services_0_name.value ))
+        catalog.services[0].description: (( .properties.catalog_services_0_description.value ))
+        catalog.services[0].tags: (( .properties.catalog_services_0_tags.value ))
+        catalog.services[0].bindable: (( .properties.catalog_services_0_bindable.value ))
+        catalog.services[0].repositoryService: (( .properties.catalog_services_0_repository_service.value ))
+        catalog.services[0].metadata.displayName: (( .properties.catalog_services_0_display_name.value ))
+        catalog.services[0].metadata.imageUrl: (( .properties.catalog_services_0_image_url.value ))
+        catalog.services[0].metadata.longDescription: (( .properties.catalog_services_0_long_description.value ))
+        catalog.services[0].metadata.providerDisplayName: (( .properties.catalog_services_0_provider_display_name.value ))
+        catalog.services[0].metadata.documentationUrl: (( .properties.catalog_services_0_documentation_url.value ))
+        catalog.services[0].metadata.supportUrl: (( .properties.catalog_services_0_support_url.value ))
+
+        catalog.services[1].id: (( .properties.catalog_services_1_guid.value ))
+        catalog.services[1].active: (( .properties.catalog_services_1_active.value ))
+        catalog.services[1].name: (( .properties.catalog_services_1_name.value ))
+        catalog.services[1].description: (( .properties.catalog_services_1_description.value ))
+        catalog.services[1].tags: (( .properties.catalog_services_1_tags.value ))
+        catalog.services[1].bindable: (( .properties.catalog_services_1_bindable.value ))
+        catalog.services[1].repositoryService: (( .properties.catalog_services_1_repository_service.value ))
+        catalog.services[1].metadata.displayName: (( .properties.catalog_services_1_display_name.value ))
+        catalog.services[1].metadata.imageUrl: (( .properties.catalog_services_1_image_url.value ))
+        catalog.services[1].metadata.longDescription: (( .properties.catalog_services_1_long_description.value ))
+        catalog.services[1].metadata.providerDisplayName: (( .properties.catalog_services_1_provider_display_name.value ))
+        catalog.services[1].metadata.documentationUrl: (( .properties.catalog_services_1_documentation_url.value ))
+        catalog.services[1].metadata.supportUrl: (( .properties.catalog_services_1_support_url.value ))
+
+        catalog.services[2].id: (( .properties.catalog_services_2_guid.value ))
+        catalog.services[2].active: (( .properties.catalog_services_2_active.value ))
+        catalog.services[2].name: (( .properties.catalog_services_2_name.value ))
+        catalog.services[2].description: (( .properties.catalog_services_2_description.value ))
+        catalog.services[2].tags: (( .properties.catalog_services_2_tags.value ))
+        catalog.services[2].bindable: (( .properties.catalog_services_2_bindable.value ))
+        catalog.services[2].repositoryService: (( .properties.catalog_services_2_repository_service.value ))
+        catalog.services[2].metadata.displayName: (( .properties.catalog_services_2_display_name.value ))
+        catalog.services[2].metadata.imageUrl: (( .properties.catalog_services_2_image_url.value ))
+        catalog.services[2].metadata.longDescription: (( .properties.catalog_services_2_long_description.value ))
+        catalog.services[2].metadata.providerDisplayName: (( .properties.catalog_services_2_provider_display_name.value ))
+        catalog.services[2].metadata.documentationUrl: (( .properties.catalog_services_2_documentation_url.value ))
+        catalog.services[2].metadata.supportUrl: (( .properties.catalog_services_2_support_url.value ))
+
+        catalog.services[3].id: (( .properties.catalog_services_3_guid.value ))
+        catalog.services[3].active: (( .properties.catalog_services_3_active.value ))
+        catalog.services[3].name: (( .properties.catalog_services_3_name.value ))
+        catalog.services[3].description: (( .properties.catalog_services_3_description.value ))
+        catalog.services[3].tags: (( .properties.catalog_services_3_tags.value ))
+        catalog.services[3].bindable: (( .properties.catalog_services_3_bindable.value ))
+        catalog.services[3].repositoryService: (( .properties.catalog_services_3_repository_service.value ))
+        catalog.services[3].metadata.displayName: (( .properties.catalog_services_3_display_name.value ))
+        catalog.services[3].metadata.imageUrl: (( .properties.catalog_services_3_image_url.value ))
+        catalog.services[3].metadata.longDescription: (( .properties.catalog_services_3_long_description.value ))
+        catalog.services[3].metadata.providerDisplayName: (( .properties.catalog_services_3_provider_display_name.value ))
+        catalog.services[3].metadata.documentationUrl: (( .properties.catalog_services_3_documentation_url.value ))
+        catalog.services[3].metadata.supportUrl: (( .properties.catalog_services_3_support_url.value ))
+
+        catalog.services[4].id: (( .properties.catalog_services_4_guid.value ))
+        catalog.services[4].active: (( .properties.catalog_services_4_active.value ))
+        catalog.services[4].name: (( .properties.catalog_services_4_name.value ))
+        catalog.services[4].description: (( .properties.catalog_services_4_description.value ))
+        catalog.services[4].tags: (( .properties.catalog_services_4_tags.value ))
+        catalog.services[4].bindable: (( .properties.catalog_services_4_bindable.value ))
+        catalog.services[4].repositoryService: (( .properties.catalog_services_4_repository_service.value ))
+        catalog.services[4].metadata.displayName: (( .properties.catalog_services_4_display_name.value ))
+        catalog.services[4].metadata.imageUrl: (( .properties.catalog_services_4_image_url.value ))
+        catalog.services[4].metadata.longDescription: (( .properties.catalog_services_4_long_description.value ))
+        catalog.services[4].metadata.providerDisplayName: (( .properties.catalog_services_4_provider_display_name.value ))
+        catalog.services[4].metadata.documentationUrl: (( .properties.catalog_services_4_documentation_url.value ))
+        catalog.services[4].metadata.supportUrl: (( .properties.catalog_services_4_support_url.value ))
+
+properties:
+  - name: catalog_services_0_guid
+    type: uuid
+  - name: catalog_services_1_guid
+    type: uuid
+  - name: catalog_services_2_guid
+    type: uuid
+  - name: catalog_services_3_guid
+    type: uuid
+  - name: catalog_services_4_guid
+    type: uuid
+
+
+
+
+forms:
+- name: api_connection
+  label: Connectivity Settings
+  description: Objectscale Connection Details
+  properties:
+    - name: broker_apitype
+      label: "Broker API type"
+      type: string
+      default: objectscale
+      configurable: false
+    - name: broker_ignore_ssl_validation
+      label: "Ignore SSL validation errors"
+      type: string
+      default: true
+      configurable: false
+    - name: broker_objectscale_id
+      label: Objectscale ID
+      description: Enter Objectscale ID
+      type: string
+      placeholder: OSCI________________
+      configurable: true
+    - name: broker_objectscale_gateway_endpoint
+      label: Objectscale Gateway
+      description: Enter the URI for the Objectscale Gateway.
+      type: string
+      configurable: true
+    - name: broker_objectstore_name
+      label: Objectstore name
+      description: Enter Objectscale name
+      type: string
+      configurable: true
+    - name: broker_objectstore_id
+      label: Objectstore ID
+      description: Enter Objectscale ID
+      type: string
+      configurable: true
+      placeholder: OSTI________________
+    - name: broker_objectstore_management_endpoint
+      label: Objectstore Management Endpoint
+      description: Enter the URI for the Objectstore management endpoint
+      type: string
+      configurable: true
+    - name: broker_objectstore_s3_endpoint
+      label: Objectstore S3 Endpoint
+      description: Enter the URI for the Objectstore management endpoint
+      type: string
+      configurable: true
+    - name: broker_account_id
+      label: Account ID
+      description: Enter the ID of the pre-created account. This account should be bound to target Objectstore.
+      type: string
+      configurable: true
+      placeholder: OSAI________________
+    - name: broker_access_key
+      label: Access Key
+      description: Enter the access key of a user in the pre-created account. This account should be granted with all S3 and IAM operations.
+      type: string
+      configurable: true
+      placeholder: OKIA________________
+    - name: broker_secret_key
+      label: Secret Key
+      description: Enter the secret key of same user in the pre-created account.
+      type: secret
+      configurable: true
+    - name: broker_username
+      label: Management API user name
+      description: Enter the name of the Management user. User must be SYSTEM_ADMIN.
+      type: string
+      configurable: true
+    - name: broker_password
+      label: Management API password
+      description: Enter the ECS Management API password
+      type: secret
+      configurable: true
+    - name: broker_certificate_selector
+      label: Is the ECS SSL certificate is signed by a trust authority?
+      description: If the ECS does not have a properly signed certificate from a trust authority (a self-signed certificate, for example), then customers will need to provide the SSL certificate.
+      default: "No"
+      configurable: true
+      type: selector
+      option_templates:
+        - name: untrusted_ssl
+          select_value: "No"
+          property_blueprints:
+            - name: certificate
+              label: SSL Certificate
+              description: SSL certificate to enable broker to communicate with API endpoints. This is required for self-signed certificates, but may not be needed when the system is configured with a signed certificate from a trusted source
+              type: text
+              configurable: true
+              optional: true
+        - name: trusted_ssl
+          select_value: "Yes"
+          property_blueprints: []
+    - name: broker_prefix
+      label: Broker Prefix
+      description: (Optional) Enter a string used to prefix all broker created buckets and users. Defaults to 'service-broker-'
+      type: string
+      configurable: true
+      optional: true
+
+- name: catalog_services_1
+  label: Catalog Service 1
+  description: Configure Catalog Service 1
+  properties:
+    - name: catalog_services_0_active
+      label: Enable Catalog Service 1
+      default: true
+      description: If enabled, this service will be included in the broker catalog, which supplies the Cloud Foundry marketplace.
+      configurable: true
+      type: boolean
+    - name: catalog_services_0_name
+      label: Name
+      type: string
+      configurable: true
+      description: Service named used in the Cloud Foundry marketplace. This should be kept fairly short
+      default: objectscale-bucket
+    - name: catalog_services_0_description
+      label: Description
+      type: string
+      configurable: true
+      description: Full description of the service appearing in the marketplace
+      default: Dell ObjectScale private object storage bucket
+    - name: catalog_services_0_tags
+      label: Tags
+      type: string_list
+      configurable: true
+      description: Tags for service. These can be used by applications or cloud services (such as Spring Cloud) to identify service offerings & instances
+      default: "s3,bucket"
+    - name: catalog_services_0_bindable
+      label: Bindable
+      type: boolean
+      default: true
+      configurable: true
+      description: Determines if this service can be bound to user applications. This should typically be enabled, but could be disabled for internal-only services
+    - name: catalog_services_0_repository_service
+      label: Enable as Repository Service
+      type: boolean
+      description: Use this service for the internal metadata of the broker. This should only be enabled for one service, as the broker may pick from repository enabled services at random on startup.
+      configurable: true
+      default: true
+    - name: catalog_services_0_display_name
+      label: Display Name
+      default: ECS Bucket
+      type: string
+      description: The name that will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_0_image_url
+      label: Image URL
+      type: http_url
+      default: https://avatars.githubusercontent.com/u/12926680
+      description: The image that will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_0_long_description
+      label: Long Description
+      default: Dell EMC Elastic Cloud Storage (ECS) private object storage Bucket
+      type: text
+      description: A long description to use for the service, which will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_0_provider_display_name
+      label: Provider Display Name
+      type: string
+      default: Dell Technologies
+      description: Provider name that will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_0_documentation_url
+      label: Documentation URL
+      type: http_url
+      default: https://community.emc.com/docs/DOC-45012
+      description: The documentation link that will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_0_support_url
+      label: Support URL
+      type: http_url
+      default: http://www.emc.com/products-solutions/trial-software-download/ecs.htm
+      description: The support link that will show in the PCF Apps Manager Marketplace
+    - name: catalog_service_settings0
+      label: Type of Service
+      type: selector
+      configurable: true
+      default: Bucket
+      description: Set the type of service to be available in the marketplace. A bucket provides a single bucket per service. A namespace provides a tenant 'area' where multiple buckets can be provisioned
+      option_templates:
+        - name: bucket_option
+          select_value: Bucket
+          property_blueprints:
+            - name: default_retention
+              label: Default Retention (Seconds)
+              type: integer
+              optional: true
+              configurable: true
+              description: The default number of seconds an object should be retained. The object cannot be deleted until that time has elapsed. This can be set to -1 for infinite retention. This only applies to bucket services. Setting default retention in the service will _override_ default retention at within a plan.
+            - name: expiration
+              label: Expiration (Days)
+              type: integer
+              optional: true
+              configurable: true
+              description: The default number of days an object should be retained before removal. If the lifecycle expires before the retention period expires, the object will not be deleted until the retention period is over. This only applies to bucket services.
+            - name: encrypted
+              label: Enable Encryption
+              type: boolean
+              default: false
+              configurable: true
+              description: Enabled encryption on this service. Encryption cannot be changed after creation, so this setting cannot be changed by plan upgrades
+            - name: bucket_tags
+              label: Bucket Tags
+              type: string
+              optional: true
+              configurable: true
+              description: (Optional) Tags for buckets. Represented as key-value pairs in format 'key1=value1,key2=value2'
+              constraints:
+                - must_match_regex: '^[\w\d\+\-\.\_\:\/\@\s\=\,]*$'
+                  error_message: 'Allowed characters are letters, numbers, and spaces representable in UTF-8, and the following characters: + - . _ : / @'
+                - must_match_regex: '^(.{0,128}\s?=\s?.{0,256}\s?,\s?)*.{0,128}\s?=\s?.{0,256}$|^$'
+                  error_message: 'A tag key can be up to 128 Unicode characters in length, and tag values can be up to 256 Unicode characters in length'
+                - must_match_regex: '^([\w\d\+\-\.\_\:\/\@\s]{0,128}\s?=\s?[\w\d\+\-\.\_\:\/\@\s]{0,256}\s?,\s?)*[\w\d\+\-\.\_\:\/\@\s]{0,128}\s?=\s?[\w\d\+\-\.\_\:\/\@\s]{0,256}$|^$'
+                  error_message: Tag pairs should be presented in format 'key1=value1,key2=value2'
+            - name: file_accessible
+              label: Enable File Access
+              type: boolean
+              default: false
+              configurable: true
+              description: Enable NFS and HDFS access for provisioned buckets. This also enables volume mount services for the service, so a bucket can be used as an application mount point. File access cannot be changed after creation, so this setting cannot be changed by plan upgrades. This only applies to bucket services
+    - name: catalog_search_metadata_collection0
+      label: Customize Search Metadata for this Service
+      type: collection
+      configurable: true
+      optional: true
+      property_blueprints:
+        - name: name
+          label: Name
+          type: string
+          configurable: true
+          description: "Name of Search Metadata. Name of User provided metadata should start with prefix 'x-amz-meta-', while System metadata should be one of following: ObjectName, Owner, Size, CreateTime, LastModified"
+          constraints:
+            - must_match_regex: '^ObjectName$|^Owner$|^Size$|^CreateTime$|^LastModified$|^x-amz-meta-.*$'
+              error_message: "Name of User provided metadata should start with prefix 'x-amz-meta-', while System metadata should be one of following: ObjectName, Owner, Size, CreateTime, LastModified"
+        - name: type
+          label: Type
+          type: dropdown_select
+          default: system
+          configurable: true
+          description: Type of Search Metadata
+          options:
+            - name: System
+              label: System
+            - name: User
+              label: User
+        - name: datatype
+          label: Data Type
+          type: dropdown_select
+          default: string
+          configurable: true
+          description: "Data Type of Search Metadata. Provided System Metadata have stated data type: ObjectName - String, Owner - String, Size - Integer, CreateTime - DateTime, LastModified - DateTime"
+          options:
+            - name: String
+              label: String
+            - name: Integer
+              label: Integer
+            - name: Decimal
+              label: Decimal
+            - name: DateTime
+              label: DateTime
+    - name: catalog_plan_collection0
+      label: Customize Plans for this Service
+      type: collection
+      configurable: true
+      property_blueprints:
+        - name: name
+          label: Name
+          type: string
+          configurable: true
+          description: Name of this service plan to show in Cloud Foundry marketplace
+        - name: description
+          label: Description
+          type: string
+          configurable: true
+          description: Description of this service plan to show in Cloud Foundry marketplace
+        - name: repository_plan
+          label: Enable as Repository Plan
+          type: boolean
+          description: Use this plan for the internal metadata of the broker. This should only be enabled for one service, as the broker may pick from repository enabled plans at random on startup.
+          configurable: true
+        - name: cost_value
+          label: Cost
+          type: string
+          configurable: true
+          description: The cost for the plan based on the "Cost Unit". Should be in the form of a float -- 0.00
+        - name: cost_currency
+          label: Cost currency
+          type: string
+          configurable: true
+          description: The currency of a cost for the plan. Should be the three-letter ISO code (USD, EUR)
+        - name: cost_unit
+          label: Cost Unit
+          type: string
+          configurable: true
+          description: The unit for each to charge. By convention is should be in ALL CAPS. Examples include MONTHLY, PER_GB, PER_GB_PER_MONTH
+        - name: bullet_1
+          label: Bullet 1
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: bullet_2
+          label: Bullet 2
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: bullet_3
+          label: Bullet 3
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: bullet_4
+          label: Bullet 4
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: bullet_5
+          label: Bullet 5
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: quota_limit
+          label: Quota Limit (GB)
+          type: integer
+          optional: true
+          configurable: true
+          description: The capacity quota limit in gigabytes. A user will not be able to store more than this amount in a provisioned bucket or namespace
+        - name: quota_warn
+          label: Quota Warning (GB)
+          type: integer
+          optional: true
+          configurable: true
+          description: The capacity quota warning in gigabytes. A ECS warning notification will be generated when a user consumes this amount of storage
+        - name: free
+          label: Free of Charge
+          type: boolean
+          configurable: true
+          description: Whether this service is free or paid
+        - name: access_during_outage
+          label: Enable Access During Outage
+          type: boolean
+          default: true
+          configurable: true
+          description: This allows a bucket or namespace to remain online even if the primary site is offline. This is typically enabled, but can be disabled if strict data consistency is required, since actual replication is asynchronous
+        - name: default_retention
+          label: Default Retention (Seconds)
+          type: integer
+          optional: true
+          configurable: true
+          description: The default number of seconds an object should be retained. The object cannot be deleted until that time has elapsed. This can be set to -1 for infinite retention. This only applies to bucket services
+        - name: replication_group
+          label: Replication group
+          type: string
+          optional: true
+          configurable: true
+          description: (Optional) Replication group. If empty, instances are created in a replication group specified in ECS Connection Details or in service config.
+        - name: namespace
+          label: Namespace
+          type: string
+          optional: true
+          configurable: true
+          description: (Optional) Namespace for new buckets. If empty, buckets are created in namespace specified in ECS Connection Details or in service config.
+        - name: bucket_tags
+          label: Bucket Tags
+          type: string
+          optional: true
+          configurable: true
+          description: (Optional) Tags for buckets. Represented as key-value pairs in format 'key1=value1,key2=value2'
+          constraints:
+            - must_match_regex: '^[\w\d\+\-\.\_\:\/\@\s\=\,]*$'
+              error_message: 'Allowed characters are letters, numbers, and spaces representable in UTF-8, and the following characters: + - . _ : / @'
+            - must_match_regex: '^(.{0,128}\s?=\s?.{0,256}\s?,\s?)*.{0,128}\s?=\s?.{0,256}$|^$'
+              error_message: 'A tag key can be up to 128 Unicode characters in length, and tag values can be up to 256 Unicode characters in length'
+            - must_match_regex: '^([\w\d\+\-\.\_\:\/\@\s]{0,128}\s?=\s?[\w\d\+\-\.\_\:\/\@\s]{0,256}\s?,\s?)*[\w\d\+\-\.\_\:\/\@\s]{0,128}\s?=\s?[\w\d\+\-\.\_\:\/\@\s]{0,256}$|^$'
+              error_message: Tag pairs should be presented in format 'key1=value1,key2=value2'
+      default:
+        - name: 5gb
+          description: 5 GB free trial
+          cost_value: 0.00
+          cost_currency: USD
+          cost_unit: MONTHLY
+          quota_limit: 5
+          quota_warn: 4
+          free: true
+          bullet_1: Shared Object Storage
+          bullet_2: 5 GB Storage Limit
+          bullet_3: S3 Protocol Access
+        - name: unlimited
+          repository_plan: true
+          description: Usage based billing
+          cost_value: 0.03
+          cost_currency: USD
+          cost_unit: PER_GB_PER_MONTH
+          bullet_1: Shared Object Storage
+          bullet_2: Unlimited Storage
+          bullet_3: S3 Protocol Access
+
+- name: catalog_services_2
+  label: Catalog Service 2
+  description: Configure Catalog Service 2
+  properties:
+    - name: catalog_services_1_active
+      label: Enable Catalog Service 2
+      default: false
+      description: If enabled, this service will be included in the broker catalog, which supplies the Cloud Foundry marketplace.
+      configurable: true
+      type: boolean
+    - name: catalog_services_1_name
+      label: Name
+      type: string
+      configurable: true
+      description: Service named used in the Cloud Foundry marketplace. This should be kept fairly short
+      default: objectscale-bucket
+    - name: catalog_services_1_description
+      label: Description
+      type: string
+      configurable: true
+      description: Full description of the service appearing in the marketplace
+      default: Dell ObjectScale private object storage bucket
+    - name: catalog_services_1_tags
+      label: Tags
+      type: string_list
+      configurable: true
+      description: Tags for service. These can be used by applications or cloud services (such as Spring Cloud) to identify service offerings & instances
+      default: "s3,bucket"
+    - name: catalog_services_1_bindable
+      label: Bindable
+      type: boolean
+      default: true
+      configurable: true
+      description: Determines if this service can be bound to user applications. This should typically be enabled, but could be disabled for internal-only services
+    - name: catalog_services_1_repository_service
+      label: Enable as Repository Service
+      type: boolean
+      description: Use this service for the internal metadata of the broker. This should only be enabled for one service, as the broker may pick from repository enabled services at random on startup.
+      configurable: true
+      default: true
+    - name: catalog_services_1_display_name
+      label: Display Name
+      default: ECS Bucket
+      type: string
+      description: The name that will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_1_image_url
+      label: Image URL
+      type: http_url
+      default: https://avatars.githubusercontent.com/u/12926680
+      description: The image that will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_1_long_description
+      label: Long Description
+      default: Dell EMC Elastic Cloud Storage (ECS) private object storage Bucket
+      type: text
+      description: A long description to use for the service, which will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_1_provider_display_name
+      label: Provider Display Name
+      type: string
+      default: Dell Technologies
+      description: Provider name that will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_1_documentation_url
+      label: Documentation URL
+      type: http_url
+      default: https://community.emc.com/docs/DOC-45012
+      description: The documentation link that will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_1_support_url
+      label: Support URL
+      type: http_url
+      default: http://www.emc.com/products-solutions/trial-software-download/ecs.htm
+      description: The support link that will show in the PCF Apps Manager Marketplace
+    - name: catalog_service_settings1
+      label: Type of Service
+      type: selector
+      configurable: true
+      default: Bucket
+      description: Set the type of service to be available in the marketplace. A bucket provides a single bucket per service. A namespace provides a tenant 'area' where multiple buckets can be provisioned
+      option_templates:
+        - name: bucket_option
+          select_value: Bucket
+          property_blueprints:
+            - name: default_retention
+              label: Default Retention (Seconds)
+              type: integer
+              optional: true
+              configurable: true
+              description: The default number of seconds an object should be retained. The object cannot be deleted until that time has elapsed. This can be set to -1 for infinite retention. This only applies to bucket services. Setting default retention in the service will _override_ default retention at within a plan.
+            - name: expiration
+              label: Expiration (Days)
+              type: integer
+              optional: true
+              configurable: true
+              description: The default number of days an object should be retained before removal. If the lifecycle expires before the retention period expires, the object will not be deleted until the retention period is over. This only applies to bucket services.
+            - name: encrypted
+              label: Enable Encryption
+              type: boolean
+              default: false
+              configurable: true
+              description: Enabled encryption on this service. Encryption cannot be changed after creation, so this setting cannot be changed by plan upgrades
+            - name: bucket_tags
+              label: Bucket Tags
+              type: string
+              optional: true
+              configurable: true
+              description: (Optional) Tags for buckets. Represented as key-value pairs in format 'key1=value1,key2=value2'
+              constraints:
+                - must_match_regex: '^[\w\d\+\-\.\_\:\/\@\s\=\,]*$'
+                  error_message: 'Allowed characters are letters, numbers, and spaces representable in UTF-8, and the following characters: + - . _ : / @'
+                - must_match_regex: '^(.{0,128}\s?=\s?.{0,256}\s?,\s?)*.{0,128}\s?=\s?.{0,256}$|^$'
+                  error_message: 'A tag key can be up to 128 Unicode characters in length, and tag values can be up to 256 Unicode characters in length'
+                - must_match_regex: '^([\w\d\+\-\.\_\:\/\@\s]{0,128}\s?=\s?[\w\d\+\-\.\_\:\/\@\s]{0,256}\s?,\s?)*[\w\d\+\-\.\_\:\/\@\s]{0,128}\s?=\s?[\w\d\+\-\.\_\:\/\@\s]{0,256}$|^$'
+                  error_message: Tag pairs should be presented in format 'key1=value1,key2=value2'
+            - name: file_accessible
+              label: Enable File Access
+              type: boolean
+              default: false
+              configurable: true
+              description: Enable NFS and HDFS access for provisioned buckets. This also enables volume mount services for the service, so a bucket can be used as an application mount point. File access cannot be changed after creation, so this setting cannot be changed by plan upgrades. This only applies to bucket services
+    - name: catalog_search_metadata_collection1
+      label: Customize Search Metadata for this Service
+      type: collection
+      configurable: true
+      optional: true
+      property_blueprints:
+        - name: name
+          label: Name
+          type: string
+          configurable: true
+          description: "Name of Search Metadata. Name of User provided metadata should start with prefix 'x-amz-meta-', while System metadata should be one of following: ObjectName, Owner, Size, CreateTime, LastModified"
+          constraints:
+            - must_match_regex: '^ObjectName$|^Owner$|^Size$|^CreateTime$|^LastModified$|^x-amz-meta-.*$'
+              error_message: "Name of User provided metadata should start with prefix 'x-amz-meta-', while System metadata should be one of following: ObjectName, Owner, Size, CreateTime, LastModified"
+        - name: type
+          label: Type
+          type: dropdown_select
+          default: system
+          configurable: true
+          description: Type of Search Metadata
+          options:
+            - name: System
+              label: System
+            - name: User
+              label: User
+        - name: datatype
+          label: Data Type
+          type: dropdown_select
+          default: string
+          configurable: true
+          description: "Data Type of Search Metadata. Provided System Metadata have stated data type: ObjectName - String, Owner - String, Size - Integer, CreateTime - DateTime, LastModified - DateTime"
+          options:
+            - name: String
+              label: String
+            - name: Integer
+              label: Integer
+            - name: Decimal
+              label: Decimal
+            - name: DateTime
+              label: DateTime
+    - name: catalog_plan_collection1
+      label: Customize Plans for this Service
+      type: collection
+      configurable: true
+      property_blueprints:
+        - name: name
+          label: Name
+          type: string
+          configurable: true
+          description: Name of this service plan to show in Cloud Foundry marketplace
+        - name: description
+          label: Description
+          type: string
+          configurable: true
+          description: Description of this service plan to show in Cloud Foundry marketplace
+        - name: repository_plan
+          label: Enable as Repository Plan
+          type: boolean
+          description: Use this plan for the internal metadata of the broker. This should only be enabled for one service, as the broker may pick from repository enabled plans at random on startup.
+          configurable: true
+        - name: cost_value
+          label: Cost
+          type: string
+          configurable: true
+          description: The cost for the plan based on the "Cost Unit". Should be in the form of a float -- 0.00
+        - name: cost_currency
+          label: Cost currency
+          type: string
+          configurable: true
+          description: The currency of a cost for the plan. Should be the three-letter ISO code (USD, EUR)
+        - name: cost_unit
+          label: Cost Unit
+          type: string
+          configurable: true
+          description: The unit for each to charge. By convention is should be in ALL CAPS. Examples include MONTHLY, PER_GB, PER_GB_PER_MONTH
+        - name: bullet_1
+          label: Bullet 1
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: bullet_2
+          label: Bullet 2
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: bullet_3
+          label: Bullet 3
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: bullet_4
+          label: Bullet 4
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: bullet_5
+          label: Bullet 5
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: quota_limit
+          label: Quota Limit (GB)
+          type: integer
+          optional: true
+          configurable: true
+          description: The capacity quota limit in gigabytes. A user will not be able to store more than this amount in a provisioned bucket or namespace
+        - name: quota_warn
+          label: Quota Warning (GB)
+          type: integer
+          optional: true
+          configurable: true
+          description: The capacity quota warning in gigabytes. A ECS warning notification will be generated when a user consumes this amount of storage
+        - name: free
+          label: Free of Charge
+          type: boolean
+          configurable: true
+          description: Whether this service is free or paid
+        - name: access_during_outage
+          label: Enable Access During Outage
+          type: boolean
+          default: true
+          configurable: true
+          description: This allows a bucket or namespace to remain online even if the primary site is offline. This is typically enabled, but can be disabled if strict data consistency is required, since actual replication is asynchronous
+        - name: default_retention
+          label: Default Retention (Seconds)
+          type: integer
+          optional: true
+          configurable: true
+          description: The default number of seconds an object should be retained. The object cannot be deleted until that time has elapsed. This can be set to -1 for infinite retention. This only applies to bucket services
+        - name: replication_group
+          label: Replication group
+          type: string
+          optional: true
+          configurable: true
+          description: (Optional) Replication group. If empty, instances are created in a replication group specified in ECS Connection Details or in service config.
+        - name: namespace
+          label: Namespace
+          type: string
+          optional: true
+          configurable: true
+          description: (Optional) Namespace for new buckets. If empty, buckets are created in namespace specified in ECS Connection Details or in service config.
+        - name: bucket_tags
+          label: Bucket Tags
+          type: string
+          optional: true
+          configurable: true
+          description: (Optional) Tags for buckets. Represented as key-value pairs in format 'key1=value1,key2=value2'
+          constraints:
+            - must_match_regex: '^[\w\d\+\-\.\_\:\/\@\s\=\,]*$'
+              error_message: 'Allowed characters are letters, numbers, and spaces representable in UTF-8, and the following characters: + - . _ : / @'
+            - must_match_regex: '^(.{0,128}\s?=\s?.{0,256}\s?,\s?)*.{0,128}\s?=\s?.{0,256}$|^$'
+              error_message: 'A tag key can be up to 128 Unicode characters in length, and tag values can be up to 256 Unicode characters in length'
+            - must_match_regex: '^([\w\d\+\-\.\_\:\/\@\s]{0,128}\s?=\s?[\w\d\+\-\.\_\:\/\@\s]{0,256}\s?,\s?)*[\w\d\+\-\.\_\:\/\@\s]{0,128}\s?=\s?[\w\d\+\-\.\_\:\/\@\s]{0,256}$|^$'
+              error_message: Tag pairs should be presented in format 'key1=value1,key2=value2'
+      default:
+        - name: 5gb
+          description: 5 GB free trial
+          cost_value: 0.00
+          cost_currency: USD
+          cost_unit: MONTHLY
+          quota_limit: 5
+          quota_warn: 4
+          free: true
+          bullet_1: Shared Object Storage
+          bullet_2: 5 GB Storage Limit
+          bullet_3: S3 Protocol Access
+        - name: unlimited
+          repository_plan: true
+          description: Usage based billing
+          cost_value: 0.03
+          cost_currency: USD
+          cost_unit: PER_GB_PER_MONTH
+          bullet_1: Shared Object Storage
+          bullet_2: Unlimited Storage
+          bullet_3: S3 Protocol Access
+
+- name: catalog_services_3
+  label: Catalog Service 3
+  description: Configure Catalog Service 3
+  properties:
+    - name: catalog_services_2_active
+      label: Enable Catalog Service 3
+      default: false
+      description: If enabled, this service will be included in the broker catalog, which supplies the Cloud Foundry marketplace.
+      configurable: true
+      type: boolean
+    - name: catalog_services_2_name
+      label: Name
+      type: string
+      configurable: true
+      description: Service named used in the Cloud Foundry marketplace. This should be kept fairly short
+      default: objectscale-bucket
+    - name: catalog_services_2_description
+      label: Description
+      type: string
+      configurable: true
+      description: Full description of the service appearing in the marketplace
+      default: Dell ObjectScale private object storage bucket
+    - name: catalog_services_2_tags
+      label: Tags
+      type: string_list
+      configurable: true
+      description: Tags for service. These can be used by applications or cloud services (such as Spring Cloud) to identify service offerings & instances
+      default: "s3,bucket"
+    - name: catalog_services_2_bindable
+      label: Bindable
+      type: boolean
+      default: true
+      configurable: true
+      description: Determines if this service can be bound to user applications. This should typically be enabled, but could be disabled for internal-only services
+    - name: catalog_services_2_repository_service
+      label: Enable as Repository Service
+      type: boolean
+      description: Use this service for the internal metadata of the broker. This should only be enabled for one service, as the broker may pick from repository enabled services at random on startup.
+      configurable: true
+      default: true
+    - name: catalog_services_2_display_name
+      label: Display Name
+      default: ECS Bucket
+      type: string
+      description: The name that will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_2_image_url
+      label: Image URL
+      type: http_url
+      default: https://avatars.githubusercontent.com/u/12926680
+      description: The image that will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_2_long_description
+      label: Long Description
+      default: Dell EMC Elastic Cloud Storage (ECS) private object storage Bucket
+      type: text
+      description: A long description to use for the service, which will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_2_provider_display_name
+      label: Provider Display Name
+      type: string
+      default: Dell Technologies
+      description: Provider name that will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_2_documentation_url
+      label: Documentation URL
+      type: http_url
+      default: https://community.emc.com/docs/DOC-45012
+      description: The documentation link that will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_2_support_url
+      label: Support URL
+      type: http_url
+      default: http://www.emc.com/products-solutions/trial-software-download/ecs.htm
+      description: The support link that will show in the PCF Apps Manager Marketplace
+    - name: catalog_service_settings2
+      label: Type of Service
+      type: selector
+      configurable: true
+      default: Bucket
+      description: Set the type of service to be available in the marketplace. A bucket provides a single bucket per service. A namespace provides a tenant 'area' where multiple buckets can be provisioned
+      option_templates:
+        - name: bucket_option
+          select_value: Bucket
+          property_blueprints:
+            - name: default_retention
+              label: Default Retention (Seconds)
+              type: integer
+              optional: true
+              configurable: true
+              description: The default number of seconds an object should be retained. The object cannot be deleted until that time has elapsed. This can be set to -1 for infinite retention. This only applies to bucket services. Setting default retention in the service will _override_ default retention at within a plan.
+            - name: expiration
+              label: Expiration (Days)
+              type: integer
+              optional: true
+              configurable: true
+              description: The default number of days an object should be retained before removal. If the lifecycle expires before the retention period expires, the object will not be deleted until the retention period is over. This only applies to bucket services.
+            - name: encrypted
+              label: Enable Encryption
+              type: boolean
+              default: false
+              configurable: true
+              description: Enabled encryption on this service. Encryption cannot be changed after creation, so this setting cannot be changed by plan upgrades
+            - name: bucket_tags
+              label: Bucket Tags
+              type: string
+              optional: true
+              configurable: true
+              description: (Optional) Tags for buckets. Represented as key-value pairs in format 'key1=value1,key2=value2'
+              constraints:
+                - must_match_regex: '^[\w\d\+\-\.\_\:\/\@\s\=\,]*$'
+                  error_message: 'Allowed characters are letters, numbers, and spaces representable in UTF-8, and the following characters: + - . _ : / @'
+                - must_match_regex: '^(.{0,128}\s?=\s?.{0,256}\s?,\s?)*.{0,128}\s?=\s?.{0,256}$|^$'
+                  error_message: 'A tag key can be up to 128 Unicode characters in length, and tag values can be up to 256 Unicode characters in length'
+                - must_match_regex: '^([\w\d\+\-\.\_\:\/\@\s]{0,128}\s?=\s?[\w\d\+\-\.\_\:\/\@\s]{0,256}\s?,\s?)*[\w\d\+\-\.\_\:\/\@\s]{0,128}\s?=\s?[\w\d\+\-\.\_\:\/\@\s]{0,256}$|^$'
+                  error_message: Tag pairs should be presented in format 'key1=value1,key2=value2'
+            - name: file_accessible
+              label: Enable File Access
+              type: boolean
+              default: false
+              configurable: true
+              description: Enable NFS and HDFS access for provisioned buckets. This also enables volume mount services for the service, so a bucket can be used as an application mount point. File access cannot be changed after creation, so this setting cannot be changed by plan upgrades. This only applies to bucket services
+    - name: catalog_search_metadata_collection2
+      label: Customize Search Metadata for this Service
+      type: collection
+      configurable: true
+      optional: true
+      property_blueprints:
+        - name: name
+          label: Name
+          type: string
+          configurable: true
+          description: "Name of Search Metadata. Name of User provided metadata should start with prefix 'x-amz-meta-', while System metadata should be one of following: ObjectName, Owner, Size, CreateTime, LastModified"
+          constraints:
+            - must_match_regex: '^ObjectName$|^Owner$|^Size$|^CreateTime$|^LastModified$|^x-amz-meta-.*$'
+              error_message: "Name of User provided metadata should start with prefix 'x-amz-meta-', while System metadata should be one of following: ObjectName, Owner, Size, CreateTime, LastModified"
+        - name: type
+          label: Type
+          type: dropdown_select
+          default: system
+          configurable: true
+          description: Type of Search Metadata
+          options:
+            - name: System
+              label: System
+            - name: User
+              label: User
+        - name: datatype
+          label: Data Type
+          type: dropdown_select
+          default: string
+          configurable: true
+          description: "Data Type of Search Metadata. Provided System Metadata have stated data type: ObjectName - String, Owner - String, Size - Integer, CreateTime - DateTime, LastModified - DateTime"
+          options:
+            - name: String
+              label: String
+            - name: Integer
+              label: Integer
+            - name: Decimal
+              label: Decimal
+            - name: DateTime
+              label: DateTime
+    - name: catalog_plan_collection2
+      label: Customize Plans for this Service
+      type: collection
+      configurable: true
+      property_blueprints:
+        - name: name
+          label: Name
+          type: string
+          configurable: true
+          description: Name of this service plan to show in Cloud Foundry marketplace
+        - name: description
+          label: Description
+          type: string
+          configurable: true
+          description: Description of this service plan to show in Cloud Foundry marketplace
+        - name: repository_plan
+          label: Enable as Repository Plan
+          type: boolean
+          description: Use this plan for the internal metadata of the broker. This should only be enabled for one service, as the broker may pick from repository enabled plans at random on startup.
+          configurable: true
+        - name: cost_value
+          label: Cost
+          type: string
+          configurable: true
+          description: The cost for the plan based on the "Cost Unit". Should be in the form of a float -- 0.00
+        - name: cost_currency
+          label: Cost currency
+          type: string
+          configurable: true
+          description: The currency of a cost for the plan. Should be the three-letter ISO code (USD, EUR)
+        - name: cost_unit
+          label: Cost Unit
+          type: string
+          configurable: true
+          description: The unit for each to charge. By convention is should be in ALL CAPS. Examples include MONTHLY, PER_GB, PER_GB_PER_MONTH
+        - name: bullet_1
+          label: Bullet 1
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: bullet_2
+          label: Bullet 2
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: bullet_3
+          label: Bullet 3
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: bullet_4
+          label: Bullet 4
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: bullet_5
+          label: Bullet 5
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: quota_limit
+          label: Quota Limit (GB)
+          type: integer
+          optional: true
+          configurable: true
+          description: The capacity quota limit in gigabytes. A user will not be able to store more than this amount in a provisioned bucket or namespace
+        - name: quota_warn
+          label: Quota Warning (GB)
+          type: integer
+          optional: true
+          configurable: true
+          description: The capacity quota warning in gigabytes. A ECS warning notification will be generated when a user consumes this amount of storage
+        - name: free
+          label: Free of Charge
+          type: boolean
+          configurable: true
+          description: Whether this service is free or paid
+        - name: access_during_outage
+          label: Enable Access During Outage
+          type: boolean
+          default: true
+          configurable: true
+          description: This allows a bucket or namespace to remain online even if the primary site is offline. This is typically enabled, but can be disabled if strict data consistency is required, since actual replication is asynchronous
+        - name: default_retention
+          label: Default Retention (Seconds)
+          type: integer
+          optional: true
+          configurable: true
+          description: The default number of seconds an object should be retained. The object cannot be deleted until that time has elapsed. This can be set to -1 for infinite retention. This only applies to bucket services
+        - name: replication_group
+          label: Replication group
+          type: string
+          optional: true
+          configurable: true
+          description: (Optional) Replication group. If empty, instances are created in a replication group specified in ECS Connection Details or in service config.
+        - name: namespace
+          label: Namespace
+          type: string
+          optional: true
+          configurable: true
+          description: (Optional) Namespace for new buckets. If empty, buckets are created in namespace specified in ECS Connection Details or in service config.
+        - name: bucket_tags
+          label: Bucket Tags
+          type: string
+          optional: true
+          configurable: true
+          description: (Optional) Tags for buckets. Represented as key-value pairs in format 'key1=value1,key2=value2'
+          constraints:
+            - must_match_regex: '^[\w\d\+\-\.\_\:\/\@\s\=\,]*$'
+              error_message: 'Allowed characters are letters, numbers, and spaces representable in UTF-8, and the following characters: + - . _ : / @'
+            - must_match_regex: '^(.{0,128}\s?=\s?.{0,256}\s?,\s?)*.{0,128}\s?=\s?.{0,256}$|^$'
+              error_message: 'A tag key can be up to 128 Unicode characters in length, and tag values can be up to 256 Unicode characters in length'
+            - must_match_regex: '^([\w\d\+\-\.\_\:\/\@\s]{0,128}\s?=\s?[\w\d\+\-\.\_\:\/\@\s]{0,256}\s?,\s?)*[\w\d\+\-\.\_\:\/\@\s]{0,128}\s?=\s?[\w\d\+\-\.\_\:\/\@\s]{0,256}$|^$'
+              error_message: Tag pairs should be presented in format 'key1=value1,key2=value2'
+      default:
+        - name: 5gb
+          description: 5 GB free trial
+          cost_value: 0.00
+          cost_currency: USD
+          cost_unit: MONTHLY
+          quota_limit: 5
+          quota_warn: 4
+          free: true
+          bullet_1: Shared Object Storage
+          bullet_2: 5 GB Storage Limit
+          bullet_3: S3 Protocol Access
+        - name: unlimited
+          repository_plan: true
+          description: Usage based billing
+          cost_value: 0.03
+          cost_currency: USD
+          cost_unit: PER_GB_PER_MONTH
+          bullet_1: Shared Object Storage
+          bullet_2: Unlimited Storage
+          bullet_3: S3 Protocol Access
+
+- name: catalog_services_4
+  label: Catalog Service 4
+  description: Configure Catalog Service 4
+  properties:
+    - name: catalog_services_3_active
+      label: Enable Catalog Service 4
+      default: false
+      description: If enabled, this service will be included in the broker catalog, which supplies the Cloud Foundry marketplace.
+      configurable: true
+      type: boolean
+    - name: catalog_services_3_name
+      label: Name
+      type: string
+      configurable: true
+      description: Service named used in the Cloud Foundry marketplace. This should be kept fairly short
+      default: objectscale-bucket
+    - name: catalog_services_3_description
+      label: Description
+      type: string
+      configurable: true
+      description: Full description of the service appearing in the marketplace
+      default: Dell ObjectScale private object storage bucket
+    - name: catalog_services_3_tags
+      label: Tags
+      type: string_list
+      configurable: true
+      description: Tags for service. These can be used by applications or cloud services (such as Spring Cloud) to identify service offerings & instances
+      default: "s3,bucket"
+    - name: catalog_services_3_bindable
+      label: Bindable
+      type: boolean
+      default: true
+      configurable: true
+      description: Determines if this service can be bound to user applications. This should typically be enabled, but could be disabled for internal-only services
+    - name: catalog_services_3_repository_service
+      label: Enable as Repository Service
+      type: boolean
+      description: Use this service for the internal metadata of the broker. This should only be enabled for one service, as the broker may pick from repository enabled services at random on startup.
+      configurable: true
+      default: true
+    - name: catalog_services_3_display_name
+      label: Display Name
+      default: ECS Bucket
+      type: string
+      description: The name that will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_3_image_url
+      label: Image URL
+      type: http_url
+      default: https://avatars.githubusercontent.com/u/12926680
+      description: The image that will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_3_long_description
+      label: Long Description
+      default: Dell EMC Elastic Cloud Storage (ECS) private object storage Bucket
+      type: text
+      description: A long description to use for the service, which will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_3_provider_display_name
+      label: Provider Display Name
+      type: string
+      default: Dell Technologies
+      description: Provider name that will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_3_documentation_url
+      label: Documentation URL
+      type: http_url
+      default: https://community.emc.com/docs/DOC-45012
+      description: The documentation link that will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_3_support_url
+      label: Support URL
+      type: http_url
+      default: http://www.emc.com/products-solutions/trial-software-download/ecs.htm
+      description: The support link that will show in the PCF Apps Manager Marketplace
+    - name: catalog_service_settings3
+      label: Type of Service
+      type: selector
+      configurable: true
+      default: Bucket
+      description: Set the type of service to be available in the marketplace. A bucket provides a single bucket per service. A namespace provides a tenant 'area' where multiple buckets can be provisioned
+      option_templates:
+        - name: bucket_option
+          select_value: Bucket
+          property_blueprints:
+            - name: default_retention
+              label: Default Retention (Seconds)
+              type: integer
+              optional: true
+              configurable: true
+              description: The default number of seconds an object should be retained. The object cannot be deleted until that time has elapsed. This can be set to -1 for infinite retention. This only applies to bucket services. Setting default retention in the service will _override_ default retention at within a plan.
+            - name: expiration
+              label: Expiration (Days)
+              type: integer
+              optional: true
+              configurable: true
+              description: The default number of days an object should be retained before removal. If the lifecycle expires before the retention period expires, the object will not be deleted until the retention period is over. This only applies to bucket services.
+            - name: encrypted
+              label: Enable Encryption
+              type: boolean
+              default: false
+              configurable: true
+              description: Enabled encryption on this service. Encryption cannot be changed after creation, so this setting cannot be changed by plan upgrades
+            - name: bucket_tags
+              label: Bucket Tags
+              type: string
+              optional: true
+              configurable: true
+              description: (Optional) Tags for buckets. Represented as key-value pairs in format 'key1=value1,key2=value2'
+              constraints:
+                - must_match_regex: '^[\w\d\+\-\.\_\:\/\@\s\=\,]*$'
+                  error_message: 'Allowed characters are letters, numbers, and spaces representable in UTF-8, and the following characters: + - . _ : / @'
+                - must_match_regex: '^(.{0,128}\s?=\s?.{0,256}\s?,\s?)*.{0,128}\s?=\s?.{0,256}$|^$'
+                  error_message: 'A tag key can be up to 128 Unicode characters in length, and tag values can be up to 256 Unicode characters in length'
+                - must_match_regex: '^([\w\d\+\-\.\_\:\/\@\s]{0,128}\s?=\s?[\w\d\+\-\.\_\:\/\@\s]{0,256}\s?,\s?)*[\w\d\+\-\.\_\:\/\@\s]{0,128}\s?=\s?[\w\d\+\-\.\_\:\/\@\s]{0,256}$|^$'
+                  error_message: Tag pairs should be presented in format 'key1=value1,key2=value2'
+            - name: file_accessible
+              label: Enable File Access
+              type: boolean
+              default: false
+              configurable: true
+              description: Enable NFS and HDFS access for provisioned buckets. This also enables volume mount services for the service, so a bucket can be used as an application mount point. File access cannot be changed after creation, so this setting cannot be changed by plan upgrades. This only applies to bucket services
+    - name: catalog_search_metadata_collection3
+      label: Customize Search Metadata for this Service
+      type: collection
+      configurable: true
+      optional: true
+      property_blueprints:
+        - name: name
+          label: Name
+          type: string
+          configurable: true
+          description: "Name of Search Metadata. Name of User provided metadata should start with prefix 'x-amz-meta-', while System metadata should be one of following: ObjectName, Owner, Size, CreateTime, LastModified"
+          constraints:
+            - must_match_regex: '^ObjectName$|^Owner$|^Size$|^CreateTime$|^LastModified$|^x-amz-meta-.*$'
+              error_message: "Name of User provided metadata should start with prefix 'x-amz-meta-', while System metadata should be one of following: ObjectName, Owner, Size, CreateTime, LastModified"
+        - name: type
+          label: Type
+          type: dropdown_select
+          default: system
+          configurable: true
+          description: Type of Search Metadata
+          options:
+            - name: System
+              label: System
+            - name: User
+              label: User
+        - name: datatype
+          label: Data Type
+          type: dropdown_select
+          default: string
+          configurable: true
+          description: "Data Type of Search Metadata. Provided System Metadata have stated data type: ObjectName - String, Owner - String, Size - Integer, CreateTime - DateTime, LastModified - DateTime"
+          options:
+            - name: String
+              label: String
+            - name: Integer
+              label: Integer
+            - name: Decimal
+              label: Decimal
+            - name: DateTime
+              label: DateTime
+    - name: catalog_plan_collection3
+      label: Customize Plans for this Service
+      type: collection
+      configurable: true
+      property_blueprints:
+        - name: name
+          label: Name
+          type: string
+          configurable: true
+          description: Name of this service plan to show in Cloud Foundry marketplace
+        - name: description
+          label: Description
+          type: string
+          configurable: true
+          description: Description of this service plan to show in Cloud Foundry marketplace
+        - name: repository_plan
+          label: Enable as Repository Plan
+          type: boolean
+          description: Use this plan for the internal metadata of the broker. This should only be enabled for one service, as the broker may pick from repository enabled plans at random on startup.
+          configurable: true
+        - name: cost_value
+          label: Cost
+          type: string
+          configurable: true
+          description: The cost for the plan based on the "Cost Unit". Should be in the form of a float -- 0.00
+        - name: cost_currency
+          label: Cost currency
+          type: string
+          configurable: true
+          description: The currency of a cost for the plan. Should be the three-letter ISO code (USD, EUR)
+        - name: cost_unit
+          label: Cost Unit
+          type: string
+          configurable: true
+          description: The unit for each to charge. By convention is should be in ALL CAPS. Examples include MONTHLY, PER_GB, PER_GB_PER_MONTH
+        - name: bullet_1
+          label: Bullet 1
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: bullet_2
+          label: Bullet 2
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: bullet_3
+          label: Bullet 3
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: bullet_4
+          label: Bullet 4
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: bullet_5
+          label: Bullet 5
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: quota_limit
+          label: Quota Limit (GB)
+          type: integer
+          optional: true
+          configurable: true
+          description: The capacity quota limit in gigabytes. A user will not be able to store more than this amount in a provisioned bucket or namespace
+        - name: quota_warn
+          label: Quota Warning (GB)
+          type: integer
+          optional: true
+          configurable: true
+          description: The capacity quota warning in gigabytes. A ECS warning notification will be generated when a user consumes this amount of storage
+        - name: free
+          label: Free of Charge
+          type: boolean
+          configurable: true
+          description: Whether this service is free or paid
+        - name: access_during_outage
+          label: Enable Access During Outage
+          type: boolean
+          default: true
+          configurable: true
+          description: This allows a bucket or namespace to remain online even if the primary site is offline. This is typically enabled, but can be disabled if strict data consistency is required, since actual replication is asynchronous
+        - name: default_retention
+          label: Default Retention (Seconds)
+          type: integer
+          optional: true
+          configurable: true
+          description: The default number of seconds an object should be retained. The object cannot be deleted until that time has elapsed. This can be set to -1 for infinite retention. This only applies to bucket services
+        - name: replication_group
+          label: Replication group
+          type: string
+          optional: true
+          configurable: true
+          description: (Optional) Replication group. If empty, instances are created in a replication group specified in ECS Connection Details or in service config.
+        - name: namespace
+          label: Namespace
+          type: string
+          optional: true
+          configurable: true
+          description: (Optional) Namespace for new buckets. If empty, buckets are created in namespace specified in ECS Connection Details or in service config.
+        - name: bucket_tags
+          label: Bucket Tags
+          type: string
+          optional: true
+          configurable: true
+          description: (Optional) Tags for buckets. Represented as key-value pairs in format 'key1=value1,key2=value2'
+          constraints:
+            - must_match_regex: '^[\w\d\+\-\.\_\:\/\@\s\=\,]*$'
+              error_message: 'Allowed characters are letters, numbers, and spaces representable in UTF-8, and the following characters: + - . _ : / @'
+            - must_match_regex: '^(.{0,128}\s?=\s?.{0,256}\s?,\s?)*.{0,128}\s?=\s?.{0,256}$|^$'
+              error_message: 'A tag key can be up to 128 Unicode characters in length, and tag values can be up to 256 Unicode characters in length'
+            - must_match_regex: '^([\w\d\+\-\.\_\:\/\@\s]{0,128}\s?=\s?[\w\d\+\-\.\_\:\/\@\s]{0,256}\s?,\s?)*[\w\d\+\-\.\_\:\/\@\s]{0,128}\s?=\s?[\w\d\+\-\.\_\:\/\@\s]{0,256}$|^$'
+              error_message: Tag pairs should be presented in format 'key1=value1,key2=value2'
+      default:
+        - name: 5gb
+          description: 5 GB free trial
+          cost_value: 0.00
+          cost_currency: USD
+          cost_unit: MONTHLY
+          quota_limit: 5
+          quota_warn: 4
+          free: true
+          bullet_1: Shared Object Storage
+          bullet_2: 5 GB Storage Limit
+          bullet_3: S3 Protocol Access
+        - name: unlimited
+          repository_plan: true
+          description: Usage based billing
+          cost_value: 0.03
+          cost_currency: USD
+          cost_unit: PER_GB_PER_MONTH
+          bullet_1: Shared Object Storage
+          bullet_2: Unlimited Storage
+          bullet_3: S3 Protocol Access
+
+- name: catalog_services_5
+  label: Catalog Service 5
+  description: Configure Catalog Service 5
+  properties:
+    - name: catalog_services_4_active
+      label: Enable Catalog Service 5
+      default: false
+      description: If enabled, this service will be included in the broker catalog, which supplies the Cloud Foundry marketplace.
+      configurable: true
+      type: boolean
+    - name: catalog_services_4_name
+      label: Name
+      type: string
+      configurable: true
+      description: Service named used in the Cloud Foundry marketplace. This should be kept fairly short
+      default: objectscale-bucket
+    - name: catalog_services_4_description
+      label: Description
+      type: string
+      configurable: true
+      description: Full description of the service appearing in the marketplace
+      default: Dell ObjectScale private object storage bucket
+    - name: catalog_services_4_tags
+      label: Tags
+      type: string_list
+      configurable: true
+      description: Tags for service. These can be used by applications or cloud services (such as Spring Cloud) to identify service offerings & instances
+      default: "s3,bucket"
+    - name: catalog_services_4_bindable
+      label: Bindable
+      type: boolean
+      default: true
+      configurable: true
+      description: Determines if this service can be bound to user applications. This should typically be enabled, but could be disabled for internal-only services
+    - name: catalog_services_4_repository_service
+      label: Enable as Repository Service
+      type: boolean
+      description: Use this service for the internal metadata of the broker. This should only be enabled for one service, as the broker may pick from repository enabled services at random on startup.
+      configurable: true
+      default: true
+    - name: catalog_services_4_display_name
+      label: Display Name
+      default: ECS Bucket
+      type: string
+      description: The name that will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_4_image_url
+      label: Image URL
+      type: http_url
+      default: https://avatars.githubusercontent.com/u/12926680
+      description: The image that will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_4_long_description
+      label: Long Description
+      default: Dell EMC Elastic Cloud Storage (ECS) private object storage Bucket
+      type: text
+      description: A long description to use for the service, which will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_4_provider_display_name
+      label: Provider Display Name
+      type: string
+      default: Dell Technologies
+      description: Provider name that will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_4_documentation_url
+      label: Documentation URL
+      type: http_url
+      default: https://community.emc.com/docs/DOC-45012
+      description: The documentation link that will show in the PCF Apps Manager Marketplace
+    - name: catalog_services_4_support_url
+      label: Support URL
+      type: http_url
+      default: http://www.emc.com/products-solutions/trial-software-download/ecs.htm
+      description: The support link that will show in the PCF Apps Manager Marketplace
+    - name: catalog_service_settings4
+      label: Type of Service
+      type: selector
+      configurable: true
+      default: Bucket
+      description: Set the type of service to be available in the marketplace. A bucket provides a single bucket per service. A namespace provides a tenant 'area' where multiple buckets can be provisioned
+      option_templates:
+        - name: bucket_option
+          select_value: Bucket
+          property_blueprints:
+            - name: default_retention
+              label: Default Retention (Seconds)
+              type: integer
+              optional: true
+              configurable: true
+              description: The default number of seconds an object should be retained. The object cannot be deleted until that time has elapsed. This can be set to -1 for infinite retention. This only applies to bucket services. Setting default retention in the service will _override_ default retention at within a plan.
+            - name: expiration
+              label: Expiration (Days)
+              type: integer
+              optional: true
+              configurable: true
+              description: The default number of days an object should be retained before removal. If the lifecycle expires before the retention period expires, the object will not be deleted until the retention period is over. This only applies to bucket services.
+            - name: encrypted
+              label: Enable Encryption
+              type: boolean
+              default: false
+              configurable: true
+              description: Enabled encryption on this service. Encryption cannot be changed after creation, so this setting cannot be changed by plan upgrades
+            - name: bucket_tags
+              label: Bucket Tags
+              type: string
+              optional: true
+              configurable: true
+              description: (Optional) Tags for buckets. Represented as key-value pairs in format 'key1=value1,key2=value2'
+              constraints:
+                - must_match_regex: '^[\w\d\+\-\.\_\:\/\@\s\=\,]*$'
+                  error_message: 'Allowed characters are letters, numbers, and spaces representable in UTF-8, and the following characters: + - . _ : / @'
+                - must_match_regex: '^(.{0,128}\s?=\s?.{0,256}\s?,\s?)*.{0,128}\s?=\s?.{0,256}$|^$'
+                  error_message: 'A tag key can be up to 128 Unicode characters in length, and tag values can be up to 256 Unicode characters in length'
+                - must_match_regex: '^([\w\d\+\-\.\_\:\/\@\s]{0,128}\s?=\s?[\w\d\+\-\.\_\:\/\@\s]{0,256}\s?,\s?)*[\w\d\+\-\.\_\:\/\@\s]{0,128}\s?=\s?[\w\d\+\-\.\_\:\/\@\s]{0,256}$|^$'
+                  error_message: Tag pairs should be presented in format 'key1=value1,key2=value2'
+            - name: file_accessible
+              label: Enable File Access
+              type: boolean
+              default: false
+              configurable: true
+              description: Enable NFS and HDFS access for provisioned buckets. This also enables volume mount services for the service, so a bucket can be used as an application mount point. File access cannot be changed after creation, so this setting cannot be changed by plan upgrades. This only applies to bucket services
+    - name: catalog_search_metadata_collection4
+      label: Customize Search Metadata for this Service
+      type: collection
+      configurable: true
+      optional: true
+      property_blueprints:
+        - name: name
+          label: Name
+          type: string
+          configurable: true
+          description: "Name of Search Metadata. Name of User provided metadata should start with prefix 'x-amz-meta-', while System metadata should be one of following: ObjectName, Owner, Size, CreateTime, LastModified"
+          constraints:
+            - must_match_regex: '^ObjectName$|^Owner$|^Size$|^CreateTime$|^LastModified$|^x-amz-meta-.*$'
+              error_message: "Name of User provided metadata should start with prefix 'x-amz-meta-', while System metadata should be one of following: ObjectName, Owner, Size, CreateTime, LastModified"
+        - name: type
+          label: Type
+          type: dropdown_select
+          default: system
+          configurable: true
+          description: Type of Search Metadata
+          options:
+            - name: System
+              label: System
+            - name: User
+              label: User
+        - name: datatype
+          label: Data Type
+          type: dropdown_select
+          default: string
+          configurable: true
+          description: "Data Type of Search Metadata. Provided System Metadata have stated data type: ObjectName - String, Owner - String, Size - Integer, CreateTime - DateTime, LastModified - DateTime"
+          options:
+            - name: String
+              label: String
+            - name: Integer
+              label: Integer
+            - name: Decimal
+              label: Decimal
+            - name: DateTime
+              label: DateTime
+    - name: catalog_plan_collection4
+      label: Customize Plans for this Service
+      type: collection
+      configurable: true
+      property_blueprints:
+        - name: name
+          label: Name
+          type: string
+          configurable: true
+          description: Name of this service plan to show in Cloud Foundry marketplace
+        - name: description
+          label: Description
+          type: string
+          configurable: true
+          description: Description of this service plan to show in Cloud Foundry marketplace
+        - name: repository_plan
+          label: Enable as Repository Plan
+          type: boolean
+          description: Use this plan for the internal metadata of the broker. This should only be enabled for one service, as the broker may pick from repository enabled plans at random on startup.
+          configurable: true
+        - name: cost_value
+          label: Cost
+          type: string
+          configurable: true
+          description: The cost for the plan based on the "Cost Unit". Should be in the form of a float -- 0.00
+        - name: cost_currency
+          label: Cost currency
+          type: string
+          configurable: true
+          description: The currency of a cost for the plan. Should be the three-letter ISO code (USD, EUR)
+        - name: cost_unit
+          label: Cost Unit
+          type: string
+          configurable: true
+          description: The unit for each to charge. By convention is should be in ALL CAPS. Examples include MONTHLY, PER_GB, PER_GB_PER_MONTH
+        - name: bullet_1
+          label: Bullet 1
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: bullet_2
+          label: Bullet 2
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: bullet_3
+          label: Bullet 3
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: bullet_4
+          label: Bullet 4
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: bullet_5
+          label: Bullet 5
+          type: string
+          configurable: true
+          description: Bullet point to show up about the plan in the PCF Marketplace.
+          optional: true
+        - name: quota_limit
+          label: Quota Limit (GB)
+          type: integer
+          optional: true
+          configurable: true
+          description: The capacity quota limit in gigabytes. A user will not be able to store more than this amount in a provisioned bucket or namespace
+        - name: quota_warn
+          label: Quota Warning (GB)
+          type: integer
+          optional: true
+          configurable: true
+          description: The capacity quota warning in gigabytes. A ECS warning notification will be generated when a user consumes this amount of storage
+        - name: free
+          label: Free of Charge
+          type: boolean
+          configurable: true
+          description: Whether this service is free or paid
+        - name: access_during_outage
+          label: Enable Access During Outage
+          type: boolean
+          default: true
+          configurable: true
+          description: This allows a bucket or namespace to remain online even if the primary site is offline. This is typically enabled, but can be disabled if strict data consistency is required, since actual replication is asynchronous
+        - name: default_retention
+          label: Default Retention (Seconds)
+          type: integer
+          optional: true
+          configurable: true
+          description: The default number of seconds an object should be retained. The object cannot be deleted until that time has elapsed. This can be set to -1 for infinite retention. This only applies to bucket services
+        - name: replication_group
+          label: Replication group
+          type: string
+          optional: true
+          configurable: true
+          description: (Optional) Replication group. If empty, instances are created in a replication group specified in ECS Connection Details or in service config.
+        - name: namespace
+          label: Namespace
+          type: string
+          optional: true
+          configurable: true
+          description: (Optional) Namespace for new buckets. If empty, buckets are created in namespace specified in ECS Connection Details or in service config.
+        - name: bucket_tags
+          label: Bucket Tags
+          type: string
+          optional: true
+          configurable: true
+          description: (Optional) Tags for buckets. Represented as key-value pairs in format 'key1=value1,key2=value2'
+          constraints:
+            - must_match_regex: '^[\w\d\+\-\.\_\:\/\@\s\=\,]*$'
+              error_message: 'Allowed characters are letters, numbers, and spaces representable in UTF-8, and the following characters: + - . _ : / @'
+            - must_match_regex: '^(.{0,128}\s?=\s?.{0,256}\s?,\s?)*.{0,128}\s?=\s?.{0,256}$|^$'
+              error_message: 'A tag key can be up to 128 Unicode characters in length, and tag values can be up to 256 Unicode characters in length'
+            - must_match_regex: '^([\w\d\+\-\.\_\:\/\@\s]{0,128}\s?=\s?[\w\d\+\-\.\_\:\/\@\s]{0,256}\s?,\s?)*[\w\d\+\-\.\_\:\/\@\s]{0,128}\s?=\s?[\w\d\+\-\.\_\:\/\@\s]{0,256}$|^$'
+              error_message: Tag pairs should be presented in format 'key1=value1,key2=value2'
+      default:
+        - name: 5gb
+          description: 5 GB free trial
+          cost_value: 0.00
+          cost_currency: USD
+          cost_unit: MONTHLY
+          quota_limit: 5
+          quota_warn: 4
+          free: true
+          bullet_1: Shared Object Storage
+          bullet_2: 5 GB Storage Limit
+          bullet_3: S3 Protocol Access
+        - name: unlimited
+          repository_plan: true
+          description: Usage based billing
+          cost_value: 0.03
+          cost_currency: USD
+          cost_unit: PER_GB_PER_MONTH
+          bullet_1: Shared Object Storage
+          bullet_2: Unlimited Storage
+          bullet_3: S3 Protocol Access
+
+
+
+
+
+# New bosh release package with standalone job
+# - name: my-bosh-release
+#   type: bosh-release
+#   path: resources/standalone-release.tgz
+#   jobs:
+#   - name: my-job
+#     instances: 1
+#     dynamic_ip: 1
+#     type: standalone # Don't include default CF properties in generated job manifest
+#     templates:
+#     - name: my-job
+#       release: standalone-release
+
+# Include stemcell criteria if you don't want to accept the default.
+# Since this stemcell is only used to run pre and post errands, we
+# strongly recommend you leave this alone so that your tile always
+# runs with the latest stemcell.
+#
+# stemcell_criteria:
+#   os: ubuntu-trusty
+#   requires_cpi: false
+#   version: '3062'
+
+# Add any dependencies your tile has on other installed products.
+# This is often appropriate when using automatic service provisioning
+# for any of your packages above, with services provided by other
+# products.
+#
+# requires_product_versions:
+# - name: p-mysql
+#   version: '>= 1.7'
+
+# Customize upgrade parameters if the defaults don't meet your needs.
+#
+# update:
+#   canaries: 1
+#   canary_watch_time: 10000-100000
+#   max_in_flight: 1
+#   update_watch_time: 10000-100000
+
+# If prior versions of your tile are installed and configured, their
+# property values will not be overwritten by new defaults provided
+# in this file. If that is your intent, you must do the overwriting
+# explicitly using JavaScript migration functions, like so:
+#
+# migration: |
+#   properties['properties']['.properties.org']['value'] = 'system';
+
