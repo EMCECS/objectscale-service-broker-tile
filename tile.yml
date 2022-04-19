@@ -221,6 +221,12 @@ forms:
         type: string
         configurable: true
         optional: true
+      - name: broker_aws_signature_v4
+        label: AWS Signature Version 4
+        description: Use AWS Signature Version 4 for S3 requests authentication (using version 2 if not set)
+        type: boolean
+        default: true
+        configurable: true
 
   - name: catalog_services_1
     label: Catalog Service 1
